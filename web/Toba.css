@@ -1,0 +1,71 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Oct 20, 2015, 10:24:45 AM
+    Author     : Shawn_000
+*/header, nav, main, footer { display: block; }
+body { background-color: #6699ff;
+      background-image: url(gradientblue.jpg);
+      color: #d6e3ff;
+	  font-family: Verdana, Arial, sans-serif;
+}
+#wrapper { width: 80%;
+          margin-right: auto;
+		  margin-left: auto;
+		  min-width: 700px;
+		  max-width: 1024px;
+		  background-color: #FFFFFF;
+		  color: #000066;
+}
+header { background-color: #000066;
+       color: #FFFFFF;
+	   background-position: center;
+	   background-repeat: no-repeat;
+}
+h1 { text-align: center;
+     font-size: 3em;
+     padding: 10px;
+	 line-height: 150%;
+	 text-shadow: 3px 3px 3px #CCCCCC;
+}
+nav { font-weight: bold; 
+	 float: left;
+	 width: 150px;
+}
+nav ul { list-style-type: none; }
+nav a { text-decoration: none; }
+nav a:link { color: #000000; }
+nav a:visited { color: #FFFFFF; }
+nav a:hover { color: #000000; }
+.category { font-weight: bold;
+            background-color: #FFFFFF;
+			color: #000000;
+			font-size: 1.1em;
+			text-shadow: 1px 1px 1px #666;
+}
+main { margin-left: 180px;
+      padding-right: 20px;
+	  padding-bottom: 20px;
+}
+img { border-style: none; }
+footer { font-size: 0.70em;
+       font-style: italic;
+	   padding: 10px;
+	   margin-left: 180px;
+}
+footer nav { text-align: left; }
+
+table { border: 2px solid #000033; 
+      border-collapse: collapse;
+}
+td, th { padding: 0.5em;
+        border: 2px solid #000033;
+}
+
+
+.pad_top {
+
+}

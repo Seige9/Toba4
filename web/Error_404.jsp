@@ -6,13 +6,15 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<link rel="stylesheet" href="Toba.css">
 <html>
-<head>
-<title>404 Page Not Found</title>
-<body>
+	<head>
+		<link rel="stylesheet" href="Toba.css">
 
-<H2>We're sorry but the page you're looking for could not be found</H2>
+		<title>404 Page Not Found</title>
+	</head>
+	<body>
 
-</body>
+		<H2>We're sorry but the page you're looking for could not be found</H2>
+
+	</body>
 </html>

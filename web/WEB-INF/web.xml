@@ -9,8 +9,8 @@
         <servlet-class>Group1.NewCustomerServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>Transaction</servlet-name>
-        <servlet-class>Group1.Transaction</servlet-class>
+        <servlet-name>ResetPasswordServlet</servlet-name>
+        <servlet-class>Group1.ResetPasswordServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>Validate1</servlet-name>
@@ -22,19 +22,27 @@
     </servlet>
     <servlet>
         <servlet-name>User</servlet-name>
-        <servlet-class>Group2.User</servlet-class>
+        <servlet-class>Password.User</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>UserDB</servlet-name>
         <servlet-class>Group3.UserDB</servlet-class>
+    </servlet>
+	<servlet>
+        <servlet-name>TransactionServlet</servlet-name>
+        <servlet-class>Group1.TransactionServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>Transaction</servlet-name>
-        <url-pattern>/Transaction</url-pattern>
+        <servlet-name>NewCustomerServlet</servlet-name>
+        <url-pattern>/NewCustomerServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ResetPasswordServlet</servlet-name>
+        <url-pattern>/ResetPasswordServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>Validate1</servlet-name>
@@ -56,12 +64,16 @@
         <servlet-name>NewCustomerServlet</servlet-name>
         <url-pattern>/NewCustomer</url-pattern>
     </servlet-mapping>
+	<servlet-mapping>
+        <servlet-name>TransactionServlet</servlet-name>
+        <url-pattern>/TransactionServlet</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
-            30
-        </session-timeout>
+			30
+		</session-timeout>
     </session-config>
-       <error-page>
+    <error-page>
         <!-- Missing login -->
         <error-code>401</error-code>
         <location>/Error_Java.jsp</location>
@@ -86,6 +98,4 @@
         <error-code>503</error-code>
         <location>/Error_Java.jsp</location>
     </error-page>
-        
-    
-    </web-app>
+</web-app>

@@ -1,0 +1,12 @@
+<%-- any content can be specified here e.g.: --%>
+<%@ page pageEncoding="UTF-8" %>
+<nav>
+	<ul>
+		<li><a href="index.jsp">Home</a></li>
+		<li><a href="Login.jsp">Login</a></li>
+		<li><a href="NewCustomer.jsp">New Customer</a></li>
+		<li><a href="Account_activity.jsp">Account Activity</a></li>
+		<li><a href="Transaction.jsp">Transaction</a></li>
+		<li><a href="Accounts.jsp">Accounts</a></li>
+	</ul>
+</nav>

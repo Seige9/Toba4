@@ -27,7 +27,7 @@ public class Validate1{
 
  	 //creating connection with the database 
          Connection con=DriverManager.getConnection
-                        ("jdbc:mysql://localhost:3306/Toba","root","");
+                        ("jdbc:mysql://localhost:3306/Toba4","root","");
          PreparedStatement ps =con.prepareStatement
                              ("select * from register where Username=? and Password=?");
          ps.setString(1, Username);

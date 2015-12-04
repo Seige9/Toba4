@@ -45,7 +45,7 @@ public class NewCustomerServlet extends HttpServlet {
 				String state = request.getParameter("State");
 				String zipcode = request.getParameter("Zipcode");
 				String email = request.getParameter("Email");
-				User user = new User(firstname + zipcode, "welcome1", firstname, lastname, phone, address, city, state, zipcode, email);
+				User user = new User(firstname + zipcode,"welcome1", firstname, lastname, phone, address, city, state, zipcode, email);
 				String message;
 				if (firstname == null || lastname == null || phone == null
 						|| address == null || city == null || state == null

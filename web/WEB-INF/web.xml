@@ -33,10 +33,6 @@
         <servlet-class>Group1.TransactionServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>ReportServlet</servlet-name>
-        <servlet-class>Group1.ReportServlet</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>JavaSecurityServlet</servlet-name>
         <servlet-class>Group1.JavaSecurityServlet</servlet-class>
     </servlet>
@@ -79,10 +75,6 @@
     <servlet-mapping>
         <servlet-name>TransactionServlet</servlet-name>
         <url-pattern>/TransactionServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>ReportServlet</servlet-name>
-        <url-pattern>/ReportServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>JavaSecurityServlet</servlet-name>

@@ -6,27 +6,23 @@
 package Group1;
 
 import java.io.IOException;
-import java.io.OutputStream;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.LinkedList;
 import java.util.List;
+import javax.servlet.RequestDispatcher;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-
-@WebServlet("/userTableSpreadsheet")
-public class ReportServlet1 extends HttpServlet {
+@WebServlet("/ReportServlet")
+public class ReportServlet extends HttpServlet {
 
     @Override
     public void doGet(HttpServletRequest request, 
@@ -38,6 +34,7 @@ public class ReportServlet1 extends HttpServlet {
        
         try{
             // read database rowsgetConnection(
+                    response.setContentType("text/html;charset=UTF-8");
                     Connection connection=DatabaseConnection.getConnection("toba","root","root");                
                     Statement statement = connection.createStatement();
                     String query = "SELECT * FROM user ORDER BY Username";
@@ -45,7 +42,7 @@ public class ReportServlet1 extends HttpServlet {
                     
                     
                     // create the spreadsheet rows
-                    int i = 3;
+                    
                     while (results.next()) {
                         String[] appp=new String[9];
                         appp[0]=""+results.getString("Username");
@@ -62,68 +59,22 @@ public class ReportServlet1 extends HttpServlet {
                     results.close();
                     statement.close();
                 DatabaseConnection.closeConnection(connection);
+                 String[][] args=new String[apppp.size()][9];
+        
+        
+        
+                for(int i=0;i<apppp.size();i++){
+                    args[i]=apppp.get(i);
+                }
+              
+                request.setAttribute("users",args);
         } catch (SQLException e) {
             e.printStackTrace();
             this.log(e.toString());
         }
 
-        String[][] args=new String[apppp.size()][9];
-        
-        
-        
-        for(int i=0;i<apppp.size();i++){
-        	args[i]=apppp.get(i);
-        }
-        
-        String[] columnNames=new String[]{"User Name","First Name"," Last Name","Phone","ADdress","City","State","Zip Code","Email"};
-        
-        XSSFWorkbook workbook = new XSSFWorkbook(); 
-        
-        //Create a blank sheet
-        XSSFSheet sheet = workbook.createSheet("Employee Data");
-          
-        //This data needs to be written (Object[])
-        int rownum = 0;
-        Row row;
-        Cell cell;
-        int j=0;
-        row=sheet.createRow(0);
-        
-        for(j=0;j<columnNames.length;j++){
-    		cell = row.createCell(j);
-    		cell.setCellValue(columnNames[j]);
-    	}
-        
-        for (int i=0;i<args.length;i++){
-        	row = sheet.createRow(i+1);
-        	for(j=0;j<args[0].length;j++){
-        		cell = row.createCell(j);
-        		cell.setCellValue(args[i][j]);
-        	}
-        }
-        try
-        {
-        	response.setContentType("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
-        	response.setHeader("content-disposition", 
-                      "attachment; filename=users.xlsx");
-              response.setHeader("cache-control", "no-cache");
-        	 OutputStream out = response.getOutputStream();
-             workbook.write(out);
-             out.close();
-            //Write the workbook in file system
-            /*FileOutputStream out = new FileOutputStream(new File(filename));
-            workbook.write(out);
-            out.close();
-            System.out.println(filename+ " written successfully on disk.");*/
-        } 
-        catch (Exception e) 
-        {
-            e.printStackTrace();
-        }
- 
-       
-        // set the response headers
-      
+        RequestDispatcher rs = request.getRequestDispatcher("reports.jsp"); 
+        rs.forward(request, response);
 
         // get the output stream and send the workbook to the browser
        

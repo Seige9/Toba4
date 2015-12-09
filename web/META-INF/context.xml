@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
--<Context antiJARLocking="true">
+<Context antiJARLocking="true">
 
 <Resource url="jdbc:mysql://localhost:toba/dictionary" driverClassName="com.mysql.jdbc.Driver" password="root" username="root" maxWait="10000" maxIdle="30" maxActive="100" type="javax.sql.DataSource" auth="Container" name="Toba4PU"> </Resource>
 

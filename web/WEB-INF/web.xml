@@ -36,6 +36,14 @@
         <servlet-name>ReportServlet</servlet-name>
         <servlet-class>Group1.ReportServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>JavaSecurityServlet</servlet-name>
+        <servlet-class>Group1.JavaSecurityServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ReportServlet1</servlet-name>
+        <servlet-class>Group1.ReportServlet1</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
@@ -76,6 +84,14 @@
         <servlet-name>ReportServlet</servlet-name>
         <url-pattern>/ReportServlet</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>JavaSecurityServlet</servlet-name>
+        <url-pattern>/JavaSecurityServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ReportServlet1</servlet-name>
+        <url-pattern>/ReportServlet1</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
 			30
@@ -106,4 +122,42 @@
         <error-code>503</error-code>
         <location>/Error_Java.jsp</location>
     </error-page>
+    <security-constraint>
+        <display-name>AdminConstraint</display-name>
+        <web-resource-collection>
+            <web-resource-name>Admin</web-resource-name>
+            <description/>
+            <url-pattern>/secureAdmin/*</url-pattern>
+        </web-resource-collection>
+        <web-resource-collection>
+            <web-resource-name>User</web-resource-name>
+            <description/>
+            <url-pattern>/secureUser/*</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <description/>
+            <role-name>AdminRole</role-name>
+            <role-name>UserRole</role-name>
+        </auth-constraint>
+        <user-data-constraint>
+            <description/>
+            <transport-guarantee>NONE</transport-guarantee>
+        </user-data-constraint>
+    </security-constraint>
+    <login-config>
+        <auth-method>FORM</auth-method>
+        <realm-name>file</realm-name>
+        <form-login-config>
+            <form-login-page>/login.html</form-login-page>
+            <form-error-page>/login_error.html</form-error-page>
+        </form-login-config>
+    </login-config>
+    <security-role>
+        <description>Users added to this role have access to the secureAdmin directory of the server.</description>
+        <role-name>AdminRole</role-name>
+    </security-role>
+    <security-role>
+        <description>Users added to this role have access to the secureUser directory of the server.</description>
+        <role-name>UserRole</role-name>
+    </security-role>
 </web-app>
